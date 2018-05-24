@@ -1,0 +1,64 @@
+spring:
+    main:
+        banner-mode: "off"
+    mail:
+        host: localhost
+        properties:
+            mail:
+                transport:
+                    protocol: smtp
+                debug: true
+jasypt:
+    encryptor:
+        algorithm: PBEWithMD5AndDES
+        password: password
+
+application:
+    subject: Test message from %s, at %tD
+    message: This is a test message from %s generated at %tc
+
+logging:
+  level:
+    .: error
+    org.springframework: ERROR
+
+---
+
+spring:
+    profiles: development
+
+    #Mail server configurations
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: ENC(JFX5YNW9W4XRfwm74GNHRnQJ+FuBDCdr2J4lYW/cMfy+xWPe0mRDCA==)
+        password: ENC(8jQT8MR95cHAKO00buho0ckH7Abf+fFS)
+ 
+        #mail properties
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+application:
+    from: ENC(xLzUxZr0c0dS/eg4k1AP+16KGjWm8y3E5fOuVAc8jN4odsML5rh8ig==)
+
+logging:
+  level:
+    .: info
+    org.springframework: INFO
+
+---
+
+spring:
+    profiles: production
+
+    #Mail server configurations
+    mail:
+        host: ENC(D/OX+nRW4kb0wPkt0aQT5WtDrGER6wEUTvENa+1pgYg=)
+        port: 25
+
+application:
+    from: ENC(70u8Qc0/lAfehL7mtGAx/wBSD7pP3gbi6LIpZf5+fwE=)
+ 
