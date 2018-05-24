@@ -1,4 +1,4 @@
-# MAil test application
+# Mail test application
 
 This application is used for test if java can send email in local server.
 
