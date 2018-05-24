@@ -18,7 +18,7 @@ import mx.infotec.dads.pruebas.mail.utils.ValidationUtil;
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
-	private final static Logger LOGGER = LoggerFactory.getLogger(DemoApplication.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(DemoApplication.class);
 
 	@Autowired
 	private EmailService emailService;
@@ -68,7 +68,7 @@ public class DemoApplication implements CommandLineRunner {
 			if (p.waitFor() == 0) {
 				return sb.toString();
 			} else {
-				LOGGER.error("Can't exec command:\n{}", sb.toString());
+				LOGGER.error("Can't exec command:\n{}", sb);
 			}
 		} catch (InterruptedException | IOException ex) {
 			LOGGER.error("Error at retrieve hostname", ex);
